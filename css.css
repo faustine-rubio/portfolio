@@ -1238,6 +1238,7 @@ section:nth-child(even) {
 
     section {
         padding: 50px 15px;
+        scroll-margin-top: 90px;
     }
 
     .section-title {
