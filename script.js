@@ -71,36 +71,26 @@ function showToast(message) {
 
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
-        
-        // Validation
+
+        // Validation avant envoi
         if (!name || !email || !message) {
+            e.preventDefault();
             alert('Veuillez remplir tous les champs.');
             return;
         }
-        
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
+            e.preventDefault();
             alert('Veuillez entrer une adresse email valide.');
             return;
         }
-        
-        // Préparer l'email
-        const recipient = 'frubio.ing2030@esaip.org';
-        const subject = encodeURIComponent(`Contact Portfolio de ${name}`);
-        const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
 
-        showToast('Message bien envoyé !');
-        
-        setTimeout(() => {
-            window.location.href = mailtoLink;
-            contactForm.reset();
-        }, 500);
+        // Validation OK — FormSubmit prend le relais, on affiche juste le toast
+        showToast('Message envoyé ! Merci pour votre prise de contact.');
     });
 }
 
