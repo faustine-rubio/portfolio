@@ -1369,3 +1369,6 @@ section:nth-child(even) {
     color: white;
     border-color: #6d28d9;
 }
+
+.file-link--web { background:#f0f9ff; color:#0369a1; border-color:#7dd3fc; }
+.file-link--web:hover { background:#0369a1; color:#fff; border-color:#0369a1; }
