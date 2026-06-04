@@ -465,6 +465,10 @@ section:nth-child(even) {
     box-shadow: var(--shadow-md);
 }
 
+.skill-card:hover .skill-percent {
+    color: white;
+}
+
 .skill-icon {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
