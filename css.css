@@ -1857,3 +1857,26 @@ section:nth-child(even) {
         max-width: 100%;
     }
 }
+
+/* ==================== CENTRAGE COMPÉTENCES MOBILE ==================== */
+@media (max-width: 768px) {
+
+    .skill-category {
+        text-align: center;
+    }
+
+    .skill-top {
+        justify-content: center;
+        text-align: left; /* garde le texte lisible */
+    }
+
+    .skill-top span {
+        text-align: left;
+        flex: 1;
+    }
+
+    .skill-bar {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
