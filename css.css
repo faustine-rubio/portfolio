@@ -1732,11 +1732,7 @@ section:nth-child(even) {
     /* Conteneurs globaux */
     html, body {
         overflow-x: hidden;
-        max-width: 100%;
-    }
-
-    * {
-        max-width: 100%;
+        width: 100%;
     }
 
     /* Inputs et textarea ne doivent pas dépasser */
@@ -1898,5 +1894,34 @@ section:nth-child(even) {
 
     .skill-top {
         justify-content: flex-start !important;
+    }
+}
+
+/* Titre Compétences en rouge */
+.skills .section-title {
+    color: #e63946;
+}
+
+/* ==================== FIX GRILLE COMPÉTENCES MOBILE ==================== */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .skill-category {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    /* Retire toute marge auto qui pourrait décaler les blocs */
+    .skills .container {
+        padding-left: 16px;
+        padding-right: 16px;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
