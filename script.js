@@ -140,37 +140,19 @@ document.querySelectorAll('.project-card, .skill-category, .timeline-content, .c
 });
 
 // ==================== HAMBURGER MENU (Mobile) ==================== 
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('open');
-        hamburger.classList.toggle('open', isOpen);
-        hamburger.setAttribute('aria-expanded', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    // Fermer le menu au clic sur un lien
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('open');
-            hamburger.classList.remove('open');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        });
-    });
-
-    // Fermer si on repasse en desktop
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            navMenu.classList.remove('open');
-            hamburger.classList.remove('open');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        }
-    });
+// Création d'un menu hamburger responsive optionnel
+function setupMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const navContainer = document.querySelector('.nav-container');
+    
+    // Vérifier si menu hamburger est nécessaire
+    if (window.innerWidth <= 768) {
+        // Le CSS media query gère déjà l'affichage approprié
+    }
 }
+
+setupMobileMenu();
+window.addEventListener('resize', setupMobileMenu);
 
 // ==================== SCROLL REVEAL ==================== 
 // Révélation progressive des éléments au scroll
