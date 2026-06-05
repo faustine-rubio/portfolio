@@ -1877,3 +1877,26 @@ section:nth-child(even) {
         text-align: left;
     }
 }
+
+/* ==================== BLOC CATÉGORIE ALIGNÉ GAUCHE MOBILE ==================== */
+@media (max-width: 768px) {
+
+    .skills-grid {
+        justify-items: stretch;
+    }
+
+    .skill-category {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+
+    .skill-title {
+        justify-content: flex-start !important;
+        text-align: left !important;
+    }
+
+    .skill-top {
+        justify-content: flex-start !important;
+    }
+}
