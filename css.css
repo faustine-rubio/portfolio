@@ -80,6 +80,7 @@ body {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /* ==================== CONTAINER ==================== */
@@ -753,7 +754,7 @@ section:nth-child(even) {
 /* ==================== PROJETS ==================== */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
     gap: 2rem;
 }
 
@@ -1721,5 +1722,138 @@ section:nth-child(even) {
         width: 50px;
         height: 50px;
         font-size: 2rem;
+    }
+}
+
+/* ==================== MOBILE OVERFLOW FIXES ==================== */
+/* Bloque tout débordement horizontal sur mobile */
+@media (max-width: 768px) {
+
+    /* Conteneurs globaux */
+    html, body {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    * {
+        max-width: 100%;
+    }
+
+    /* Inputs et textarea ne doivent pas dépasser */
+    input, textarea, select {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Hero : empêche le prénom trop large de déborder */
+    .hero-firstname {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Grille compétences : forcer 1 colonne */
+    .skills-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Grille projets : forcer 1 colonne */
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Project cards : éviter tout débordement interne */
+    .project-card {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .project-header {
+        padding: 1.25rem !important;
+    }
+
+    .project-card > * {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .project-files {
+        padding: 0 1rem 1rem !important;
+        flex-wrap: wrap;
+    }
+
+    /* Tech badges : wrap sans déborder */
+    .project-tech {
+        flex-wrap: wrap;
+    }
+
+    .tech-badge {
+        max-width: 100%;
+        word-break: break-word;
+    }
+
+    /* Keywords : wrap sans déborder */
+    .keywords-list {
+        flex-wrap: wrap;
+    }
+
+    .keyword-tag {
+        max-width: 100%;
+        word-break: break-word;
+    }
+
+    /* Timeline : s'assurer qu'elle ne déborde pas */
+    .timeline {
+        overflow: hidden;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        max-width: calc(100% - 60px);
+        box-sizing: border-box;
+    }
+
+    /* Footer email long : couper si besoin */
+    .footer-contact-list a,
+    .footer-contact-list span {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Footer inner : forcer 1 colonne sur petits écrans */
+    .footer-inner {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Boutons hero : limités à la largeur dispo */
+    .hero-buttons .btn {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Contact form */
+    .contact-form {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1.25rem;
+    }
+
+    /* Navbar ne doit pas déborder */
+    .nav-container {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Section padding réduit pour éviter overflow */
+    section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        box-sizing: border-box;
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+        box-sizing: border-box;
+        max-width: 100%;
     }
 }
