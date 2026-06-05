@@ -1858,25 +1858,22 @@ section:nth-child(even) {
     }
 }
 
-/* ==================== CENTRAGE COMPÉTENCES MOBILE ==================== */
+/* ==================== ALIGNEMENT GAUCHE COMPÉTENCES MOBILE ==================== */
 @media (max-width: 768px) {
 
     .skill-category {
-        text-align: center;
+        text-align: left;
+    }
+
+    .skill-title {
+        justify-content: flex-start;
     }
 
     .skill-top {
-        justify-content: center;
-        text-align: left; /* garde le texte lisible */
+        justify-content: flex-start;
     }
 
     .skill-top span {
         text-align: left;
-        flex: 1;
-    }
-
-    .skill-bar {
-        margin-left: auto;
-        margin-right: auto;
     }
 }
